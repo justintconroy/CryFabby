@@ -15,15 +15,15 @@ module plate(size = [200,160,3],corner_radius=10)
 module posts()
 {
     // Front post
-    translated([64+12+7-2-2.5,0,0])
+    translated([78.5,0,0])
     rod(d=5+1, h=32-10, $fn=100);
     
     // Back right post
-    translated([-30-12-2.5,36+2-4-.5,0])
+    translated([-44.5,33.5,0])
     rod(d=5, h=7, $fn=100);
     
     // Back left post
-    translated([-30-12-2.5,-36-2+4+.5,0])
+    translated([-44.5,-33.5,0])
     rod(d=5, h=7, $fn=100);
 };
 
