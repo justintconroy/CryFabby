@@ -12,29 +12,45 @@ module plate(size = [200,160,3],corner_radius=10)
     children();
 };
 
+module peg(d=10,h=20,hole_diam=5,hole_depth=5)
+{
+    differed("hole", "not(hole)",$class="peg")
+    {
+        rod(d=d,h=h, $fn=100)
+        align(top)
+        rod(d=hole_diam,h=hole_depth,anchor=top,$fn=100,$class="hole");
+    }
+}
+
 module posts()
 {
     // Front post
-    translated([78.5,0,0])
-    rod(d=5+1, h=32-10, $fn=100);
+    translated(78.5*x,$class="posts")
+    peg(d=6,h=22,hole_diam=2,hole_depth=7);
     
-    // Back right post
-    translated([-44.5,33.5,0])
-    rod(d=5, h=7, $fn=100);
-    
-    // Back left post
-    translated([-44.5,-33.5,0])
-    rod(d=5, h=7, $fn=100);
+    // Back posts
+    translated(-44.5*x)
+    translated(67*y, [1,-1]/2)
+    peg(d=5,h=7,hole_diam=2,hole_depth=7);
 };
 
 
 align(bottom)
-differed("hole", "not(hole)")
+differed("hole","not(hole)")
 {
-plate([135,80,3],10);
-plate([118,60,3],10, $class="hole");
+    plate([170,150,3],60)
+    align(bottom)
+    {
+        translated(x,[-65,-50,-35,-20,-5,10,25,40,55])
+        plate([10,60,3],5, anchor=bottom,$class="hole");
+        
+        translated(y,[-64,-52,-40,40,52,64])
+        plate([70,8,3],4, anchor=bottom,$class="hole");
+    }
 }
 
-translated(-15*x)
 align(top)
+//translated(-15*x)
 posts();
+
+//plate([60,40,3],10);
