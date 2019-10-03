@@ -27,7 +27,7 @@ module posts()
     // Front post
     translated(77.5*x,$class="posts")
     peg(d=6,h=22,hole_diam=2.5,hole_depth=7);
-    
+
     // Back posts
     translated(-44.5*x)
     translated(68*y, [1,-1]/2)
@@ -43,7 +43,7 @@ differed("hole","not(hole)")
     {
         translated(x,[-65,-35,-5,25,55])
         plate([10,60,3],5, anchor=bottom,$class="hole");
-        
+
         translated(y,[-64,-40,40,64])
         plate([70,8,3],4, anchor=bottom,$class="hole");
     }
