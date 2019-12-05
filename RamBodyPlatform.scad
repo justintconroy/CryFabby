@@ -22,7 +22,7 @@ module peg(d=10,h=20,hole_diam=5,hole_depth=5)
     }
 }
 
-module posts(sp=[95,74], h=[22,22])
+module posts(sp=[90,77], h=[22,22])
 {
     // Front post
     translated(sp[0]/2*x,$class="posts")
@@ -38,13 +38,13 @@ module posts(sp=[95,74], h=[22,22])
 align(bottom)
 differed("hole","not(hole)")
 {
-    plate([105,90,3])
+    plate([103,95,3])
     {
         align(top)
         posts();
 
         align(bottom)
-        plate([88,75,3], $class="hole");
+        plate([80,75,3], $class="hole");
     }
 }
 
