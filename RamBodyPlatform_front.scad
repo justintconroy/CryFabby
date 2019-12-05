@@ -22,7 +22,7 @@ module peg(d=10,h=20,hole_diam=5,hole_depth=5)
     }
 }
 
-module posts(sp=[90,77], h=[22,22])
+module posts(sp=[92,80], h=[22,22])
 {
     // Front post
     translated(sp[0]/2*x,$class="posts")
